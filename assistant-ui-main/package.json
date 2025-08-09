@@ -1,0 +1,26 @@
+{
+  "name": "@assistant-ui/monorepo",
+  "private": true,
+  "scripts": {
+    "docs:dev": "pnpm --filter=@assistant-ui/docs dev",
+    "ci:version": "changeset version && pnpm install --no-frozen-lockfile",
+    "ci:publish": "turbo build --filter=\"./packages/*\" && changeset publish",
+    "prettier": "prettier \"{examples,packages,apps}/**/*.{js,jsx,ts,tsx}\" --check",
+    "prettier:fix": "prettier \"{examples,packages,apps}/**/*.{js,jsx,ts,tsx}\" --write",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "0.6.14",
+    "turbo": "^2.5.5",
+    "typescript": "^5.9.2"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
+  },
+  "packageManager": "pnpm@10.14.0"
+}
