@@ -1,17 +1,16 @@
 import { writable } from 'svelte/store';
 
 const initialState = {
-    isScrolledToBottom: true,     // Whether chat is scrolled to bottom
-    showScrollToBottom: false,    // Whether to show scroll button
-    selectedMessageID: null,      // Currently selected/highlighted message
-    composerValue: "",            // Current text in input field
-    theme: 'light',              // UI theme
-    sidebarOpen: false           // Whether sidebar is open
+    isScrolledToBottom: true,
+    showScrollToBottom: false,
+    selectedMessageID: null,
+    composerValue: "",
+    theme: 'light',
+    sidebarOpen: false
 };
 
 const { subscribe, set, update } = writable(initialState);
 
-// Method to update scroll position
 export function setScrolledToBottom(isScrolled) {
     update(state => ({
         ...state,
@@ -19,7 +18,6 @@ export function setScrolledToBottom(isScrolled) {
     }));
 }
 
-// Method to control scroll button visibility
 export function setShowScrollButton(show) {
     update(state => ({
         ...state,
@@ -27,7 +25,6 @@ export function setShowScrollButton(show) {
     }));
 }
 
-// Method to set selected message
 export function setSelectedMessage(messageID) {
     update(state => ({
         ...state,
@@ -35,19 +32,17 @@ export function setSelectedMessage(messageID) {
     }));
 }
 
-// Method to update composer input value
 export function setComposerValue(value) {
     update(state => ({
         ...state,
-        composerValue: value || ""
+        composerValue: value
     }));
 }
 
-// Method to update theme
 export function setTheme(theme) {
     const validThemes = ['light', 'dark', 'auto'];
     if (!validThemes.includes(theme)) {
-        console.warn(`Invalid theme: ${theme}. Using 'light' instead.`);
+        console.warn(`ERROR: Invalid theme ${theme} using default 'light' instead`);
         theme = 'light';
     }
     
@@ -57,7 +52,6 @@ export function setTheme(theme) {
     }));
 }
 
-// Method to toggle sidebar
 export function toggleSidebar() {
     update(state => ({
         ...state,
@@ -65,17 +59,14 @@ export function toggleSidebar() {
     }));
 }
 
-// Method to clear UI state
 export function clearUIState() {
     set(initialState);
 }
 
-// Export the store subscription
 export const uiStore = {
     subscribe
 };
 
-// Export all methods
 export default {
     subscribe,
     setScrolledToBottom,

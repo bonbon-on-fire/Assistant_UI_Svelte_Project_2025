@@ -1,7 +1,3 @@
-// index.js - Central export for all stores and utilities
-// This makes importing stores more convenient and organized
-
-// Base stores
 export { 
     conversationStore,
     addMessage,
