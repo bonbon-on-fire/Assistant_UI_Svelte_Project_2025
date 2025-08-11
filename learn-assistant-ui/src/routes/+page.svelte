@@ -1,4 +1,6 @@
 <script lang="ts">
+    import MessageList from '$lib/components/message-list.svelte';
+
     type Message = { role: 'user' | 'assistant'; text: string };
 
     let messages = $state<Message[]>([]);
@@ -9,24 +11,16 @@
         const text = inputText.trim();
         if (!text) return;
         messages = [...messages, { role: 'user', text }];
-        inputText = ''
+        inputText = '';
 
         setTimeout(() => {
             messages = [...messages, { role: 'assistant', text: `You said: ${text}` }];
-        }, 400);;
+        }, 400);
     }
 </script>
 
 <div class="app">
-    <section class="messages" aria-live="polite">
-        {#if messages.length === 0}
-            <p>No messages yet. Say hello!</p>
-        {/if}
-
-        {#each messages as m, i (i)}
-            <div class={m.role === 'user' ? 'msg user' : 'msg assistant'}>{m.text}</div>
-        {/each}
-    </section>
+    <MessageList messages={messages} />
 
     <form class="composer" onsubmit={handleSubmit}>
         <input
