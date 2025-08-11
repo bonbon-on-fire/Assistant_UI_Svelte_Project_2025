@@ -1,0 +1,71 @@
+:global(html, body) {
+    height: 100%;
+}
+
+:global(body) {
+    margin: 0;
+}
+
+@container-max: 820px;
+@space-1: 8px;
+@space-2: 12px;
+@space-3: 16px;
+@border: 1px solid #e6e6e6;
+
+.app {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    max-width: @container-max;
+    margin: 0 auto;
+    padding: @space-3;
+    box-sizing: border-box;
+}
+
+.messages {
+    overflow: auto;
+    padding: @space-2 0;
+    display: flex;
+    flex-direction: column;
+    gap: @space-2;
+}
+
+.conversation {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: @space-2;
+    border-top: @border;
+    display: flex;
+    gap: @space-2;
+}
+
+.composer input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: @space-2;
+    border: @border;
+    border-radius: 6px;
+}
+
+.composer button {
+    padding: @space-2 @space-3;
+    border: @border;
+    background: #111;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.composer {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: @space-2;
+    border-top: @border;
+    display: flex;
+    gap: @space-2;
+}
+
+.msg.user { align-self: flex-end; background: #e6f2ff; padding: 8px 12px; border-radius: 10px; }
+.msg.assistant { align-self: flex-start; background: #f4f4f5; padding: 8px 12px; border-radius: 10px; }

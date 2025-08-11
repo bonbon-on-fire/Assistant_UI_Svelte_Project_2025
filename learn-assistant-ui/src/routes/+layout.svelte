@@ -9,3 +9,5 @@
 </svelte:head>
 
 {@render children?.()}
+
+<style src="$lib/styles/chat.less" lang="less"></style>
