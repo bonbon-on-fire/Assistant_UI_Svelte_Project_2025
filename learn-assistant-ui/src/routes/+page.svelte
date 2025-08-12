@@ -35,7 +35,11 @@
           aria-label="Message input"
         />
 
-        <button type="submit" aria-label="Send message">Send</button>
+        <button
+          type="submit"
+          aria-label="Send message"
+          disabled={!inputText.trim()}>Send</button
+        >
       </form>
     </section>
   {:else}
@@ -50,7 +54,12 @@
         autocomplete="off"
         aria-label="Message input"
       />
-      <button type="submit" aria-label="Send message">Send</button>
+
+      <button
+        type="submit"
+        aria-label="Send message"
+        disabled={!inputText.trim()}>Send</button
+      >
     </form>
   {/if}
 </div>

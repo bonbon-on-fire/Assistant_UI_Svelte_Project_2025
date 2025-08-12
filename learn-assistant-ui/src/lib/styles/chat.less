@@ -1,8 +1,7 @@
 @import (css) url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @ink: #202124;
 @muted: #5f6368;
-@bubble-user: #eaf1ff;
-@bubble-assistant: #f5f5f7;
+@bubble-user: #f4f4f4;
 @surface: #ffffff;
 @border-color: #e6e6e6;
 @shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -82,6 +81,12 @@ h1 {
     cursor: pointer;
 }
 
+.composer button[type="submit"][disabled] {
+    background: #d7d7d7;
+    color: #f4f4f4;
+    cursor: not-allowed;
+}
+
 .composer {
     position: sticky;
     bottom: 0;
@@ -132,5 +137,21 @@ h1 {
 .empty .composer input::placeholder { color: @muted; }
 .composer input::placeholder { color: @muted; }
 
-.msg.user { align-self: flex-end; background: @bubble-user; color: @ink; padding: 8px 12px; border-radius: 10px; }
-.msg.assistant { align-self: flex-start; background: @bubble-assistant; color: @ink; padding: 8px 12px; border-radius: 10px; }
+.msg {
+    max-width: min(680px, 80%);
+    padding: 10px 14px;
+    border-radius: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.msg.user {
+    align-self: flex-end;
+    background: @bubble-user;
+}
+
+.msg.assistant {
+    align-self: flex-start;
+    background: transparent;
+}
