@@ -13,19 +13,26 @@ Learn Svelte v5 step by step by building an assistant UI application from the gr
 - [x] Verify basic project structure and dev server
 - [x] Establish learning plan
 
-### Phase 2: Components & Styling (Start Here)
+### Phase 2: Components & Styling (In Progress)
 
-- [ ] Build minimal chat UI skeleton in `src/routes/+page.svelte` (message list, input, send)
-- [ ] Create first custom component(s) in `src/lib/` (e.g., `MessageBubble`)
-- [ ] Install and use Less for styles (`npm i -D less`); add `chat.less`
-- [ ] Implement basic responsive layout
+- [x] Build minimal chat UI skeleton in `src/routes/+page.svelte` (message list, input, send)
+- [x] Create first component in `src/lib/` → `MessageList.svelte`
+- [x] Install and use Less for styles (`npm i -D less`); add `chat.less`
+- [x] Implement basic responsive layout (grid with sticky composer)
+- [x] Global font (Inter) and color tokens; centralized styles via `+layout.svelte` import
+- [x] Empty-state hero UI with centered heading and unified composer pill
+- [x] Bubble alignment and colors (user right → now soft gray; assistant plain text)
+- [x] Disabled Send button styling and behavior
 
 ### Phase 3: State Management & Interactions
 
-- [ ] Introduce a conversation store (messages array, roles: user/assistant)
-- [ ] On send: append user message; show typing indicator
-- [ ] Mock assistant reply with a short delay; append assistant message
-- [ ] Learn Svelte v5 runes (`$state`, `$derived`, `$effect`) through these interactions
+- [x] Local component state with Svelte 5 runes (`$state`)
+- [x] On submit: append user message
+- [x] Mock assistant reply with short delay
+- [x] Auto-scroll to bottom via `$effect` and `requestAnimationFrame`
+- [ ] Extract state to a store (persistable) and hydrate from `localStorage`
+- [ ] Typing indicator and submit debouncing
+- [ ] Explore `$derived` for computed UI state (e.g., `isComposerDisabled`)
 
 ### Phase 4: Agent Abstraction (Mock First)
 
@@ -52,15 +59,27 @@ Learn Svelte v5 step by step by building an assistant UI application from the gr
 
 ✅ Project initialized with Svelte v5 and TypeScript
 ✅ Dev server and build run with 0 errors and 0 warnings
-✅ Learning plan updated to reflect chat-first milestones
+✅ Chat UI functional with echo flow and polished UX
+✅ Styles loaded via Less with `$lib` import in `+layout.svelte`
+✅ Empty-state centered hero; unified composer design (center and bottom)
+✅ Auto-scroll on new messages; accessible `aria-live`
 
 ## Next Steps (actionable)
 
-1. Start the dev server: `npm run dev -- --open`
-2. Implement the chat UI skeleton in `src/routes/+page.svelte`
-3. Create a `MessageBubble` component in `src/lib/`
-4. Install Less (`npm i -D less`) and scaffold `chat.less`
-5. Add a simple conversation store and mock assistant response with delay
+1. Extract a `Composer.svelte` component; keep `+page.svelte` lean
+2. Persist `messages` to `localStorage` (load on mount, save on change)
+3. Add "near bottom" scroll logic; show a "Jump to latest" button when scrolled up
+4. Replace echo with a simple `MockAgent` service and interface
+5. Add basic message timestamp and subtle grouping
+6. Add lightweight component tests for `MessageList` scrolling behavior
+
+## Progress log
+
+- Implemented chat skeleton with `$state` and echo reply
+- Moved styles to Less; fixed stylesheet loading via script import in `+layout.svelte`
+- Added Inter font and color tokens; refined bubbles and spacing
+- Built `MessageList.svelte`; added auto-scroll-on-update
+- Designed empty-state hero; unified composer look; disabled send when input empty
 
 ## Skill Tracks (Foundational)
 

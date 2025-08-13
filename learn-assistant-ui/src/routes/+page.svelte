@@ -45,21 +45,23 @@
   {:else}
     <MessageList {messages} />
 
-    <form class="composer" onsubmit={handleSubmit}>
-      <!-- should be onsubmit not on:submit -->
-      <input
-        type="text"
-        placeholder="Type a message..."
-        bind:value={inputText}
-        autocomplete="off"
-        aria-label="Message input"
-      />
-
-      <button
-        type="submit"
-        aria-label="Send message"
-        disabled={!inputText.trim()}>Send</button
-      >
-    </form>
+    <div class="composer-shell">
+      <form class="composer" onsubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Type a message..."
+          bind:value={inputText}
+          autocomplete="off"
+          aria-label="Message input"
+        />
+        <button
+          type="submit"
+          aria-label="Send message"
+          disabled={!inputText.trim()}
+        >
+          Send
+        </button>
+      </form>
+    </div>
   {/if}
 </div>

@@ -54,23 +54,67 @@ h1 {
     padding: @space-3;
 }
 
-.conversation {
+/* Sticky host only for bottom bar */
+.composer-shell {
     position: sticky;
     bottom: 0;
-    background: white;
-    padding: @space-2;
+    background: #fff;
+    padding: 12px;
     border-top: @border;
-    display: flex;
-    gap: @space-2;
+}
+
+.composer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+    width: min(760px, 92vw);
+    margin: 0 auto;
+    padding: 12px 16px;
+    border: 1px solid @border-color;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: @shadow;
 }
 
 .composer input[type="text"] {
-    flex: 1;
-    min-width: 0;
-    padding: @space-2;
-    border: @border;
-    border-radius: 6px;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    color: @ink;
 }
+
+.composer button[type="submit"][disabled] {
+    background: #d7d7d7;
+    color: #f4f4f4;
+    cursor: not-allowed;
+}
+
+.empty {
+    min-height: calc(100dvh - 2 * @space-3);
+    display: grid;
+    place-content: center;
+    gap: 24px;
+    text-align: center;
+}
+
+//.conversation {
+    //position: sticky;
+    //bottom: 0;
+    //background: white;
+    //padding: @space-2;
+    //border-top: @border;
+    //display: flex;
+    //gap: @space-2;
+//}
+
+//.composer input[type="text"] {
+    //flex: 1;
+    //min-width: 0;
+    //padding: @space-2;
+    //border: @border;
+    //border-radius: 6px;
+//}
 
 .composer button {
     padding: @space-2 @space-3;
@@ -87,15 +131,15 @@ h1 {
     cursor: not-allowed;
 }
 
-.composer {
-    position: sticky;
-    bottom: 0;
-    background: white;
-    padding: @space-2;
-    border-top: @border;
-    display: flex;
-    gap: @space-2;
-}
+//.composer {
+    //position: sticky;
+    //bottom: 0;
+    //background: white;
+    //padding: @space-2;
+    //border-top: @border;
+    //display: flex;
+    //gap: @space-2;
+//}
 
 .empty {
     min-height: calc(100dvh - 2 * @space-3);
@@ -113,26 +157,26 @@ h1 {
     color: @ink;
 }
 
-.empty .composer {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 12px;
-    width: min(760px, 92vw);
-    margin: 0 auto;
-    padding: 12px 16px;
-    border: @border;
-    border-radius: 28px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
+//.empty .composer {
+    //display: grid;
+    //grid-template-columns: 1fr auto;
+    //align-items: center;
+    //gap: 12px;
+    //width: min(760px, 92vw);
+    //margin: 0 auto;
+    //padding: 12px 16px;
+    //border: @border;
+    //border-radius: 28px;
+    //background: #fff;
+    //box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+//}
 
-.empty .composer input[type="text"] {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: @ink;
-}
+//.empty .composer input[type="text"] {
+    //border: none;
+    //outline: none;
+    //font-size: 16px;
+    //color: @ink;
+//}
 
 .empty .composer input::placeholder { color: @muted; }
 .composer input::placeholder { color: @muted; }
