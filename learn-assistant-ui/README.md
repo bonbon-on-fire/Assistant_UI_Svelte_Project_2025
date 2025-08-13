@@ -2,43 +2,51 @@
 
 ## Project Overview
 
-### What I Built
+## What I Built
 
-I built a minimal, polished chat interface that replicates the ChatGPT UX: an empty-state hero ("Ready when you are."), a pill-shaped composer, a scrollable message thread with user/assistant alignment, auto-scroll to the latest message, and a disabled Send state when the input is empty. It is heavily inspired by the open-source assistant-ui project and closely mirrors GPT’s conversational layout.
+I built a Svelte 5 + SvelteKit 2 scaffold for a ChatGPT-style chat interface: sticky, pill-shaped composer; a scrollable message thread with clear user/assistant alignment; smooth auto-scroll to the latest message; and accessible, keyboard-friendly interaction. The experience mirrors ChatGPT’s proven UX so it feels familiar and intuitive.
 
-See reference: [assistant-ui](https://github.com/assistant-ui/assistant-ui).
+Beyond the surface UI, it is intentionally designed as a standalone, reusable foundation that can plug into any conversational AI or agent backend. The layout and component architecture are structured for streaming APIs, richer message rendering, and multi-turn state. It draws heavy inspiration from [assistant-ui](https://github.com/assistant-ui/assistant-ui) and is tailored for reuse in my other work, notably [DOC_Project_2025](https://github.com/bonbon-on-fire/DOC_Project_2025).
 
-### Why I Built It
+## Why I Built It
 
-I wanted to learn Svelte and practice building a reusable chat UI for another project, [DOC_Project_2025](https://github.com/bonbon-on-fire/DOC_Project_2025). This lets me refine the chat UX separately and then bring the components and patterns into that project.
+- **Skill goal:** Learn Svelte while creating a production-ready chat UI scaffold.  
+- **Practical goal:** Build a reusable, well-structured component library for future LLM-powered tools.
 
 ## Current Status
 
-The framework for a ChatGPT-like chat interface has been set up and runs locally. The message list, input composer, auto-scroll behavior, and accessibility affordances are in place. Responses are mocked for now; the code is structured to plug in a real streaming backend next.
+The ChatGPT-style framework is complete and running locally, with:  
+
+- Scrollable message list and sticky-bottom composer  
+- Auto-scroll on new messages  
+- Accessible, keyboard-friendly input  
+- Visual consistency between empty and active states  
+
+Responses are currently mocked—the architecture is ready for a streaming LLM backend.  
 
 ## Challenges and How I Solved Them
 
-- Sticky bottom composer while keeping content scrollable: solved with a two-row CSS Grid and a `position: sticky` shell.
-- Reliable auto-scroll on new messages: used Svelte runes (`$effect`) to update `scrollTop` to `scrollHeight` when `messages` change.
-- Input ergonomics and disabled states: keyboard-friendly focus and disabled Send on empty text.
-- Visual consistency between empty and chat views: reused the same composer styles in both states.
-- Windows ARM64 optional dependency warnings: added a clean reinstall flow (clear cache, remove lockfile/`node_modules`, reinstall).
+- **Keeping the composer fixed while allowing scrollable content:** Solved with a two-row CSS Grid and `position: sticky` shell.  
+- **Reliable auto-scroll to latest message:** Used Svelte runes (`$effect`) to update `scrollTop` on `messages` change.
+- **Preventing empty sends & ensuring keyboard focus:** Added a conditional disabled state and explicit focus handling.  
+- **Maintaining visual consistency between empty and chat views:** Reused composer styles across both UI states.  
+- **ARM64 Windows dependency warnings:** Implemented a clean reinstall flow (clear cache, remove lockfile and `node_modules`, reinstall).  
 
 ## Future Possibilities
 
-- Real LLM/agent backend with streaming and tool-call rendering
-- Dark mode and theme tokens; high-contrast accessibility mode
-- Persistent conversations (LocalStorage/IndexedDB/Server DB)
-- Rich message rendering (markdown, syntax highlighting, attachments)
-- Keyboard UX (shortcuts, multi-line input, edit/resend)
-- Testing (Vitest/Playwright) and CI pipeline
+- Real LLM/agent backend with streaming  
+- Theme system (dark mode, high-contrast mode)  
+- Persistent conversations (LocalStorage, IndexedDB, or server DB)  
+- Rich message rendering (Markdown, syntax highlighting, file attachments)  
+- Advanced keyboard UX (shortcuts, multi-line editing, resend)  
+- Testing suite (Vitest, Playwright) + CI/CD pipeline  
 
 ## TL;DR
 
-Svelte 5 + SvelteKit 2 ChatGPT-style UI scaffold: sticky composer, scrollable thread, auto-scroll — ready to connect to a real LLM/agent backend.
+A reusable Svelte 5 + SvelteKit 2 ChatGPT-style chat UI (sticky composer, scrollable aligned thread, auto-scroll, a11y) designed to plug into real LLM/agent backends; currently mocked but architected for streaming, richer messages, and multi-turn state—ready to reuse across projects like DOC_Project_2025.
 
 ---
 
-**Project Duration**: August 2025  
-**Technologies**: Svelte 5, SvelteKit 2, Vite 7, TypeScript, Less, Node.js, npm, Git  
-**Lines of Code**: ~2,500 (C++), ~500 (Python), ~1,000 (Tests & Config)
+**Project Duration:** August 2025  
+**Technologies:** Svelte 5, SvelteKit 2, Vite 7, TypeScript, Less, Node.js, npm, Git  
+**Lines of Code:** ~2,500 lines C++, ~500 lines Python, ~1,000 lines tests/config  
