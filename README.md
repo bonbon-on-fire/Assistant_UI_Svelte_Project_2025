@@ -1,51 +1,5 @@
 # Assistant UI Svelte Project 2025
 
-## Quick Start
-
-### Prerequisites
-
-- **Node.js**: Version 18 or higher
-- **npm**: Version 9+ (comes with Node.js)
-- **Git**: For cloning and version control
-- **OS**: macOS, Linux, or Windows (ARM64 supported)
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/assistant_ui_svelte.git
-cd assistant_ui_svelte
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-> If you see ARM64-related warnings on Windows, fix them by:
->
-> - Deleting `node_modules` and `package-lock.json`
-> - Clearing the npm cache
-> - Re-running `npm install`
-
-### 3. Run the Development Server
-
-```bash
-npm run dev
-```
-
-- Open the local URL shown in the terminal (usually `http://localhost:5173`)
-- The chat UI should load immediately with mocked responses
-
-### 4. Build for Production
-
-```bash
-npm run build
-npm run preview
-```
-
----
-
 ## Project Overview
 
 ### What I Built
