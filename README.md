@@ -128,7 +128,7 @@ Responses are currently mocked—the architecture is ready for a streaming LLM b
 
 ## TL;DR
 
-A reusable Svelte 5 + SvelteKit 2 ChatGPT-style chat UI (sticky composer, scrollable aligned thread, auto-scroll, a11y) designed to plug into real LLM/agent backends; currently mocked but architected for streaming, richer messages, and multi-turn state.
+A reusable Svelte 5 + SvelteKit 2 ChatGPT-style chat UI (sticky composer, scrollable aligned thread, auto-scroll, a11y) designed to plug into real LLM/agent backends; currently mocked but architected for streaming, richer messages, and multi-turn state—ready to reuse across projects like DOC_Project_2025.
 
 ---
 
