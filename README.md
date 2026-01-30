@@ -3,28 +3,33 @@
 ## Quick Start
 
 ### Prerequisites
-- **Node.js**: Version 18 or higher  
-- **npm**: Version 9+ (comes with Node.js)  
-- **Git**: For cloning and version control  
+
+- **Node.js**: Version 18 or higher
+- **npm**: Version 9+ (comes with Node.js)
+- **Git**: For cloning and version control
 - **OS**: macOS, Linux, or Windows (ARM64 supported)
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/yourusername/assistant_ui_svelte.git
 cd assistant_ui_svelte
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
 
 > If you see ARM64-related warnings on Windows, fix them by:
+>
 > - Deleting `node_modules` and `package-lock.json`
 > - Clearing the npm cache
 > - Re-running `npm install`
 
 ### 3. Run the Development Server
+
 ```bash
 npm run dev
 ```
@@ -33,6 +38,7 @@ npm run dev
 - The chat UI should load immediately with mocked responses
 
 ### 4. Build for Production
+
 ```bash
 npm run build
 npm run preview
@@ -90,16 +96,19 @@ A two-row grid that keeps the composer visually fixed while allowing the message
 ## Code in Action: Message Flow Example
 
 ### 1. Initial UI State
+
 - Empty message thread
 - Composer centered and visually emphasized
 - Keyboard focus ready on load
 
 ### 2. User Sends a Message
+
 - Input is validated to prevent empty sends
 - Message is appended to the reactive store
 - Thread scrolls automatically to the latest entry
 
 ### 3. Assistant Response (Mocked)
+
 - Assistant message is inserted asynchronously
 - Auto-scroll triggers again
 - Layout remains stable with no jump or resize
@@ -109,11 +118,13 @@ A two-row grid that keeps the composer visually fixed while allowing the message
 ## How the UI Works
 
 **1. Message State Management**
+
 ```ts
 messages = [...messages, newMessage];
 ```
 
 **2. Auto-Scroll Effect**
+
 ```ts
 $effect(() => {
   scrollContainer.scrollTop = scrollContainer.scrollHeight;
@@ -121,6 +132,7 @@ $effect(() => {
 ```
 
 **3. Composer Behavior**
+
 - Disabled when input is empty
 - Enter submits, Shift+Enter allows multiline
 - Focus is preserved across sends
@@ -156,11 +168,11 @@ assistant_ui_svelte/
 
 ## Current Status
 
-- ChatGPT-style UI with familiar interaction patterns  
-- Sticky composer with scrollable message thread  
-- Reliable auto-scroll on new messages  
-- Fully keyboard-accessible input flow  
-- Mocked assistant responses with streaming-ready architecture  
+- ChatGPT-style UI with familiar interaction patterns
+- Sticky composer with scrollable message thread
+- Reliable auto-scroll on new messages
+- Fully keyboard-accessible input flow
+- Mocked assistant responses with streaming-ready architecture
 
 ---
 
@@ -185,13 +197,13 @@ Resolved via clean reinstall workflow (cache clear, lockfile reset).
 
 ## Future Possibilities
 
-- Streaming LLM or agent backends  
-- Markdown + syntax-highlighted messages  
-- File uploads and attachments  
-- Theme system (dark mode, high contrast)  
-- Persistent conversations (LocalStorage, IndexedDB, or server DB)  
-- Keyboard shortcuts and power-user UX  
-- Full testing suite (Vitest, Playwright) with CI/CD  
+- Streaming LLM or agent backends
+- Markdown + syntax-highlighted messages
+- File uploads and attachments
+- Theme system (dark mode, high contrast)
+- Persistent conversations (LocalStorage, IndexedDB, or server DB)
+- Keyboard shortcuts and power-user UX
+- Full testing suite (Vitest, Playwright) with CI/CD
 
 ---
 
