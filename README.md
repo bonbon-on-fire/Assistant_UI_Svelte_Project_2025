@@ -132,6 +132,5 @@ A reusable Svelte 5 + SvelteKit 2 ChatGPT-style chat UI (sticky composer, scroll
 
 ---
 
-**Project Duration:** August 2025
-
+**Project Duration:** August 2025  
 **Technologies:** Svelte 5, SvelteKit 2, Vite 7, TypeScript, Less, Node.js, npm, Git
