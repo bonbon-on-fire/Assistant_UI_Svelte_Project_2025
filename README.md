@@ -13,8 +13,6 @@ Beyond the surface UI, it is intentionally designed as a standalone, reusable fo
 - **Skill goal:** Learn Svelte while creating a production-ready chat UI scaffold.
 - **Practical goal:** Build a reusable, well-structured component library for future LLM-powered tools.
 
----
-
 ## Technical Overview
 
 ### System Architecture
@@ -28,16 +26,11 @@ The UI follows a modular, state-driven design built around Svelte 5 runes:
 
 ### Key Components
 
-**Message Thread**  
-A scrollable message list with clear user/assistant alignment and smooth auto-scroll behavior.
+**Message Thread:** A scrollable message list with clear user/assistant alignment and smooth auto-scroll behavior.
 
-**Composer**  
-A sticky, pill-shaped input component designed for keyboard-first interaction and visual consistency.
+**Composer:** A sticky, pill-shaped input component designed for keyboard-first interaction and visual consistency.
 
-**State & Effects**  
-Uses Svelte runes (`$effect`) to update scroll position when messages change.
-
----
+**State & Effects:** Uses Svelte runes (`$effect`) to update scroll position when messages change.
 
 ## Code in Action: Message Flow Example
 
@@ -59,8 +52,6 @@ Uses Svelte runes (`$effect`) to update scroll position when messages change.
 - UI auto-scrolls again
 - Layout remains stable
 
----
-
 ## How the UI Works
 
 **1. Message State**
@@ -81,8 +72,6 @@ $effect(() => {
 
 - Disabled state when input is empty
 - Keyboard-friendly submit behavior
-
----
 
 ## Project Structure & File Guide
 
@@ -109,8 +98,6 @@ assistant_ui_svelte/
 └── README.md
 ```
 
----
-
 ## Current Status
 
 The ChatGPT-style framework is complete and running locally, with:
@@ -122,8 +109,6 @@ The ChatGPT-style framework is complete and running locally, with:
 
 Responses are currently mocked—the architecture is ready for a streaming LLM backend.
 
----
-
 ## Challenges and How I Solved Them
 
 - **Keeping the composer fixed while allowing scrollable content:** Solved with a two-row CSS Grid and `position: sticky` shell.
@@ -131,8 +116,6 @@ Responses are currently mocked—the architecture is ready for a streaming LLM b
 - **Preventing empty sends & ensuring keyboard focus:** Added conditional disabled state and explicit focus handling.
 - **Maintaining visual consistency between empty and chat views:** Reused composer styles across both UI states.
 - **ARM64 Windows dependency warnings:** Implemented a clean reinstall flow (clear cache, remove lockfile and `node_modules`, reinstall).
-
----
 
 ## Future Possibilities
 
@@ -143,8 +126,6 @@ Responses are currently mocked—the architecture is ready for a streaming LLM b
 - Advanced keyboard UX (shortcuts, multi-line editing, resend)
 - Testing suite (Vitest, Playwright) + CI/CD pipeline
 
----
-
 ## TL;DR
 
 A reusable Svelte 5 + SvelteKit 2 ChatGPT-style chat UI (sticky composer, scrollable aligned thread, auto-scroll, a11y) designed to plug into real LLM/agent backends; currently mocked but architected for streaming, richer messages, and multi-turn state.
@@ -152,4 +133,5 @@ A reusable Svelte 5 + SvelteKit 2 ChatGPT-style chat UI (sticky composer, scroll
 ---
 
 **Project Duration:** August 2025
+
 **Technologies:** Svelte 5, SvelteKit 2, Vite 7, TypeScript, Less, Node.js, npm, Git
